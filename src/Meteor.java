@@ -773,7 +773,7 @@ public class Meteor {
 		System.err.println();
 		System.err.println("Options:");
 		System.err
-				.println("-l language                     Fully supported: en cz de es fr");
+				.println("-l language                     Fully supported: en cz de es fr pl");
 		System.err
 				.println("                                Supported with language-independent parameters:");
 		System.err

@@ -108,8 +108,9 @@ public class Constants {
 	public static final int LANG_IT = 14;
 	public static final int LANG_NO = 15;
 	public static final int LANG_SE = 16;
+	public static final int LANG_PL = 17;
 
-	public static final int LANG_MAX = 16;
+	public static final int LANG_MAX = 17;
 	public static final int LANG_OTHER = 99;
 
 	private static HashSet<Integer> supportedLangIDs = null;
@@ -123,6 +124,7 @@ public class Constants {
 			supportedLangIDs.add(LANG_ES);
 			supportedLangIDs.add(LANG_DE);
 			supportedLangIDs.add(LANG_RU);
+			supportedLangIDs.add(LANG_PL);
 		}
 		return supportedLangIDs.contains(langID);
 	}
@@ -157,6 +159,7 @@ public class Constants {
 			{ 0.0, 0.0, 0.0, 0.0 }, // Italian
 			{ 0.0, 0.0, 0.0, 0.0 }, // Norwegian
 			{ 0.0, 0.0, 0.0, 0.0 }, // Swedish
+			{ 0.0, 0.0, 0.0, 0.0 }, // Polish 
 	};
 	public static final double WEIGHT_ADQ[][] = {
 			//
@@ -177,6 +180,7 @@ public class Constants {
 			{ 0.0, 0.0, 0.0, 0.0 }, // Italian
 			{ 0.0, 0.0, 0.0, 0.0 }, // Norwegian
 			{ 0.0, 0.0, 0.0, 0.0 }, // Swedish
+			{ 0.0, 0.0, 0.0, 0.0 }, // Polish 
 	};
 
 	/* Ranking task */
@@ -200,6 +204,7 @@ public class Constants {
 			{ 0.0, 0.0, 0.0, 0.0 }, // Italian
 			{ 0.0, 0.0, 0.0, 0.0 }, // Norwegian
 			{ 0.0, 0.0, 0.0, 0.0 }, // Swedish
+			{ 0.0, 0.0, 0.0, 0.0 }, // Polish 
 	};
 	public static final double WEIGHT_RANK[][] = {
 			//
@@ -220,6 +225,7 @@ public class Constants {
 			{ 0.0, 0.0, 0.0, 0.0 }, // Italian
 			{ 0.0, 0.0, 0.0, 0.0 }, // Norwegian
 			{ 0.0, 0.0, 0.0, 0.0 }, // Swedish
+			{ 0.0, 0.0, 0.0, 0.0 }, // Polish 
 	};
 
 	/* HTER task */
@@ -243,6 +249,7 @@ public class Constants {
 			{ 0.0, 0.0, 0.0, 0.0 }, // Italian
 			{ 0.0, 0.0, 0.0, 0.0 }, // Norwegian
 			{ 0.0, 0.0, 0.0, 0.0 }, // Swedish
+			{ 0.0, 0.0, 0.0, 0.0 }, // Polish 
 	};
 	public static final double WEIGHT_HTER[][] = {
 			//
@@ -263,6 +270,7 @@ public class Constants {
 			{ 0.0, 0.0, 0.0, 0.0 }, // Italian
 			{ 0.0, 0.0, 0.0, 0.0 }, // Norwegian
 			{ 0.0, 0.0, 0.0, 0.0 }, // Swedish
+			{ 0.0, 0.0, 0.0, 0.0 }, // Polish 
 	};
 
 	/* Utility task */
@@ -286,6 +294,7 @@ public class Constants {
 			{ 0.0, 0.0, 0.0, 0.0 }, // Italian
 			{ 0.0, 0.0, 0.0, 0.0 }, // Norwegian
 			{ 0.0, 0.0, 0.0, 0.0 }, // Swedish
+			{ 0.0, 0.0, 0.0, 0.0 }, // Polish 
 	};
 	public static final double WEIGHT_UTIL[][] = {
 			//
@@ -306,6 +315,7 @@ public class Constants {
 			{ 0.0, 0.0, 0.0, 0.0 }, // Italian
 			{ 0.0, 0.0, 0.0, 0.0 }, // Norwegian
 			{ 0.0, 0.0, 0.0, 0.0 }, // Swedish
+			{ 0.0, 0.0, 0.0, 0.0 }, // Polish 
 	};
 
 	public static final int TASK_DEFAULT = TASK_RANK;
@@ -416,6 +426,8 @@ public class Constants {
 			return "norwegian";
 		if (lang.equals("swedish") || lang.equals("se") || lang.equals("sv"))
 			return "swedish";
+		if (lang.equals("polish") || lang.equals("pl"))
+			return "polish";
 		if (lang.equals("other") || lang.equals("xx"))
 			return "other";
 		// Not listed
@@ -457,6 +469,8 @@ public class Constants {
 			return LANG_NO;
 		if (language.equals("swedish"))
 			return LANG_SE;
+		if (language.equals("polish"))
+			return LANG_PL;
 		if (language.equals("other"))
 			return LANG_OTHER;
 		// Not found
@@ -498,6 +512,8 @@ public class Constants {
 			return "norwegian";
 		if (langID == LANG_SE)
 			return "swedish";
+		if (langID == LANG_PL)
+			return "polish";
 		if (langID == LANG_OTHER)
 			return "other";
 		// Not found
@@ -540,6 +556,8 @@ public class Constants {
 			return "no";
 		if (langID == LANG_SE)
 			return "se";
+		if (langID == LANG_PL)
+			return "pl";
 		if (langID == LANG_OTHER)
 			return "other";
 		// Not found
@@ -865,6 +883,9 @@ public class Constants {
 		} else if (langID == LANG_SE) {
 			modules.add(MODULE_EXACT);
 			modules.add(MODULE_STEM);
+		} else if (langID == LANG_PL) {
+			modules.add(MODULE_EXACT);
+			modules.add(MODULE_SYNONYM);
 		} else if (langID == LANG_OTHER) {
 			modules.add(MODULE_EXACT);
 		} else {
