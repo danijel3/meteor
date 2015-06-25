@@ -5,4 +5,8 @@ package edu.cmu.meteor.aligner;
  */
 public interface Stemmer {
 	public String stem(String word);
+	
+	public boolean hasSingle();
+	
+	public String[] stemMulti(String word);
 }

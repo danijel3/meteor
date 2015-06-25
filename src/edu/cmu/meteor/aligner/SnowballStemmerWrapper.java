@@ -28,4 +28,14 @@ public class SnowballStemmerWrapper implements Stemmer {
 		stemmer.stem();
 		return stemmer.getCurrent();
 	}
+
+	@Override
+	public String[] stemMulti(String word) {
+		return null;
+	}
+
+	@Override
+	public boolean hasSingle() {
+		return true;
+	}
 }

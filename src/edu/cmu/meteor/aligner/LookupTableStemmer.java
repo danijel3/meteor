@@ -41,4 +41,14 @@ public class LookupTableStemmer implements Stemmer {
 			return result;
 		return word;
 	}
+
+	@Override
+	public String[] stemMulti(String word) {
+		return null;
+	}
+
+	@Override
+	public boolean hasSingle() {
+		return true;
+	}
 }
