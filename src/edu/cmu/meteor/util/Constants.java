@@ -35,6 +35,7 @@ import org.tartarus.snowball.ext.swedishStemmer;
 import org.tartarus.snowball.ext.turkishStemmer;
 
 import edu.cmu.meteor.aligner.LookupTableStemmer;
+import edu.cmu.meteor.aligner.MorfologikStemmer;
 import edu.cmu.meteor.aligner.PartialAlignment;
 import edu.cmu.meteor.aligner.SnowballStemmerWrapper;
 import edu.cmu.meteor.aligner.Stemmer;
@@ -159,7 +160,7 @@ public class Constants {
 			{ 0.0, 0.0, 0.0, 0.0 }, // Italian
 			{ 0.0, 0.0, 0.0, 0.0 }, // Norwegian
 			{ 0.0, 0.0, 0.0, 0.0 }, // Swedish
-			{ 0.0, 0.0, 0.0, 0.0 }, // Polish 
+			{ 0.0, 0.0, 0.0, 0.0 }, // Polish
 	};
 	public static final double WEIGHT_ADQ[][] = {
 			//
@@ -180,7 +181,7 @@ public class Constants {
 			{ 0.0, 0.0, 0.0, 0.0 }, // Italian
 			{ 0.0, 0.0, 0.0, 0.0 }, // Norwegian
 			{ 0.0, 0.0, 0.0, 0.0 }, // Swedish
-			{ 0.0, 0.0, 0.0, 0.0 }, // Polish 
+			{ 0.0, 0.0, 0.0, 0.0 }, // Polish
 	};
 
 	/* Ranking task */
@@ -204,7 +205,7 @@ public class Constants {
 			{ 0.0, 0.0, 0.0, 0.0 }, // Italian
 			{ 0.0, 0.0, 0.0, 0.0 }, // Norwegian
 			{ 0.0, 0.0, 0.0, 0.0 }, // Swedish
-			{ 0.0, 0.0, 0.0, 0.0 }, // Polish 
+			{ 0.0, 0.0, 0.0, 0.0 }, // Polish
 	};
 	public static final double WEIGHT_RANK[][] = {
 			//
@@ -225,7 +226,7 @@ public class Constants {
 			{ 0.0, 0.0, 0.0, 0.0 }, // Italian
 			{ 0.0, 0.0, 0.0, 0.0 }, // Norwegian
 			{ 0.0, 0.0, 0.0, 0.0 }, // Swedish
-			{ 0.0, 0.0, 0.0, 0.0 }, // Polish 
+			{ 0.0, 0.0, 0.0, 0.0 }, // Polish
 	};
 
 	/* HTER task */
@@ -249,7 +250,7 @@ public class Constants {
 			{ 0.0, 0.0, 0.0, 0.0 }, // Italian
 			{ 0.0, 0.0, 0.0, 0.0 }, // Norwegian
 			{ 0.0, 0.0, 0.0, 0.0 }, // Swedish
-			{ 0.0, 0.0, 0.0, 0.0 }, // Polish 
+			{ 0.0, 0.0, 0.0, 0.0 }, // Polish
 	};
 	public static final double WEIGHT_HTER[][] = {
 			//
@@ -270,7 +271,7 @@ public class Constants {
 			{ 0.0, 0.0, 0.0, 0.0 }, // Italian
 			{ 0.0, 0.0, 0.0, 0.0 }, // Norwegian
 			{ 0.0, 0.0, 0.0, 0.0 }, // Swedish
-			{ 0.0, 0.0, 0.0, 0.0 }, // Polish 
+			{ 0.0, 0.0, 0.0, 0.0 }, // Polish
 	};
 
 	/* Utility task */
@@ -294,7 +295,7 @@ public class Constants {
 			{ 0.0, 0.0, 0.0, 0.0 }, // Italian
 			{ 0.0, 0.0, 0.0, 0.0 }, // Norwegian
 			{ 0.0, 0.0, 0.0, 0.0 }, // Swedish
-			{ 0.0, 0.0, 0.0, 0.0 }, // Polish 
+			{ 0.0, 0.0, 0.0, 0.0 }, // Polish
 	};
 	public static final double WEIGHT_UTIL[][] = {
 			//
@@ -315,7 +316,7 @@ public class Constants {
 			{ 0.0, 0.0, 0.0, 0.0 }, // Italian
 			{ 0.0, 0.0, 0.0, 0.0 }, // Norwegian
 			{ 0.0, 0.0, 0.0, 0.0 }, // Swedish
-			{ 0.0, 0.0, 0.0, 0.0 }, // Polish 
+			{ 0.0, 0.0, 0.0, 0.0 }, // Polish
 	};
 
 	public static final int TASK_DEFAULT = TASK_RANK;
@@ -805,6 +806,8 @@ public class Constants {
 			return new SnowballStemmerWrapper(new norwegianStemmer());
 		if (language.equals("swedish"))
 			return new SnowballStemmerWrapper(new swedishStemmer());
+		if (language.equals("polish"))
+			return new MorfologikStemmer();
 		if (language.equals("arabic-buckwalter-reduced")) {
 			try {
 				return new LookupTableStemmer(new URL(
