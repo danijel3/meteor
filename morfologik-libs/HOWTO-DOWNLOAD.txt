@@ -1,0 +1,5 @@
+You can find the link on the right side of the official blog-page: http://morfologik.blogspot.com/
+
+The link is named "morfologik-stemming" and points to: https://sourceforge.net/projects/morfologik/files/morfologik-stemming/
+
+Place the contents of the "lib" directory into this one for the ant build to work...
